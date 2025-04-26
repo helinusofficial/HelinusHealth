@@ -51,7 +51,11 @@ namespace HelinusHealth
         }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            //this.Close();
+            Environment.Exit(0);
+            //Application.ExitThread();
+            // Invoke(new MethodInvoker(delegate { Application.Exit(); }));
+
         }
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {

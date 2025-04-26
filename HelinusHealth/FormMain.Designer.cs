@@ -68,7 +68,7 @@
             statusStripMain.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
             statusStripMain.Size = new System.Drawing.Size(387, 22);
             statusStripMain.TabIndex = 0;
-            statusStripMain.Text = "Helinus Ping Utility";
+            statusStripMain.Text = "Helinus Health";
             // 
             // toolStripStatusLabelVer
             // 
@@ -84,7 +84,7 @@
             menuStripMain.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
             menuStripMain.Size = new System.Drawing.Size(387, 24);
             menuStripMain.TabIndex = 1;
-            menuStripMain.Text = "Helinus Ping Utility";
+            menuStripMain.Text = "Helinus Health";
             // 
             // fileToolStripMenuItem
             // 

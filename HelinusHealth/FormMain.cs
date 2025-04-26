@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.DirectoryServices;
 using System.Drawing;
-using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace HelinusPingUtility
+namespace HelinusHealth
 {
     public partial class FormMain : Form
     {
         #region VariableRegion
+        private int totalSeconds = 0;
         internal Utilities utilities;
         Thread th_Timer;
         int th_Timer_Time = 1000;//1 second
@@ -81,7 +80,7 @@ namespace HelinusPingUtility
             }
         }
 
-        private int totalSeconds = 0;
+        
         private void TimerFunction()
         {
             totalSeconds =Convert.ToInt32(numericUpDownTime.Value) * 60;
@@ -92,7 +91,7 @@ namespace HelinusPingUtility
                 {
                     labelTimeLeft.BeginInvoke((MethodInvoker)delegate ()
                     {
-                        labelTimeLeft.Text = totalSeconds--.ToString() +" Secend(s)";
+                        labelTimeLeft.Text = totalSeconds--.ToString() + " Second(s)";
                     });
                 }
                 catch (Exception err)
@@ -148,7 +147,7 @@ namespace HelinusPingUtility
         {
             notifyIconMain.Visible = false;
             this.Visible = true;
-            this.Text = "Ping Utility | Davood Motevalizadeh";
+            this.Text = "Helinus Health | Davood Motevalizadeh";
             this.Opacity = 100;
             this.WindowState = FormWindowState.Normal;
         }

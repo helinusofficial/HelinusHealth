@@ -39,6 +39,10 @@
             helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             groupBoxStatus = new System.Windows.Forms.GroupBox();
+            numericUpDownTime = new System.Windows.Forms.NumericUpDown();
+            labelTime = new System.Windows.Forms.Label();
+            buttonStop = new System.Windows.Forms.Button();
+            buttonStart = new System.Windows.Forms.Button();
             contextMenuStripMain = new System.Windows.Forms.ContextMenuStrip(components);
             toolStripMenuItemShow = new System.Windows.Forms.ToolStripMenuItem();
             aboutToolStripMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,16 +50,12 @@
             panelControls = new System.Windows.Forms.Panel();
             labelLogoDetail = new System.Windows.Forms.Label();
             labelLogo = new System.Windows.Forms.Label();
-            buttonStart = new System.Windows.Forms.Button();
-            buttonStop = new System.Windows.Forms.Button();
-            labelTime = new System.Windows.Forms.Label();
-            numericUpDownTime = new System.Windows.Forms.NumericUpDown();
             statusStripMain.SuspendLayout();
             menuStripMain.SuspendLayout();
             groupBoxStatus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownTime).BeginInit();
             contextMenuStripMain.SuspendLayout();
             panelControls.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownTime).BeginInit();
             SuspendLayout();
             // 
             // statusStripMain
@@ -94,12 +94,12 @@
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            toolStripSeparator1.Size = new System.Drawing.Size(90, 6);
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -113,7 +113,7 @@
             // aboutToolStripMenuItem
             // 
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             aboutToolStripMenuItem.Text = "About";
             aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
             // 
@@ -131,6 +131,41 @@
             groupBoxStatus.TabIndex = 2;
             groupBoxStatus.TabStop = false;
             groupBoxStatus.Text = "Status";
+            // 
+            // numericUpDownTime
+            // 
+            numericUpDownTime.Location = new System.Drawing.Point(116, 28);
+            numericUpDownTime.Name = "numericUpDownTime";
+            numericUpDownTime.Size = new System.Drawing.Size(120, 23);
+            numericUpDownTime.TabIndex = 3;
+            numericUpDownTime.Value = new decimal(new int[] { 20, 0, 0, 0 });
+            // 
+            // labelTime
+            // 
+            labelTime.AutoSize = true;
+            labelTime.Location = new System.Drawing.Point(12, 30);
+            labelTime.Name = "labelTime";
+            labelTime.Size = new System.Drawing.Size(98, 15);
+            labelTime.TabIndex = 2;
+            labelTime.Text = "Time (In Minute):";
+            // 
+            // buttonStop
+            // 
+            buttonStop.Location = new System.Drawing.Point(138, 64);
+            buttonStop.Name = "buttonStop";
+            buttonStop.Size = new System.Drawing.Size(75, 23);
+            buttonStop.TabIndex = 1;
+            buttonStop.Text = "Stop";
+            buttonStop.UseVisualStyleBackColor = true;
+            // 
+            // buttonStart
+            // 
+            buttonStart.Location = new System.Drawing.Point(48, 64);
+            buttonStart.Name = "buttonStart";
+            buttonStart.Size = new System.Drawing.Size(75, 23);
+            buttonStart.TabIndex = 0;
+            buttonStart.Text = "Start";
+            buttonStart.UseVisualStyleBackColor = true;
             // 
             // contextMenuStripMain
             // 
@@ -195,41 +230,6 @@
             labelLogo.TabIndex = 2;
             labelLogo.Text = "Helinus";
             // 
-            // buttonStart
-            // 
-            buttonStart.Location = new System.Drawing.Point(24, 64);
-            buttonStart.Name = "buttonStart";
-            buttonStart.Size = new System.Drawing.Size(75, 23);
-            buttonStart.TabIndex = 0;
-            buttonStart.Text = "Start";
-            buttonStart.UseVisualStyleBackColor = true;
-            // 
-            // buttonStop
-            // 
-            buttonStop.Location = new System.Drawing.Point(161, 64);
-            buttonStop.Name = "buttonStop";
-            buttonStop.Size = new System.Drawing.Size(75, 23);
-            buttonStop.TabIndex = 1;
-            buttonStop.Text = "Stop";
-            buttonStop.UseVisualStyleBackColor = true;
-            // 
-            // labelTime
-            // 
-            labelTime.AutoSize = true;
-            labelTime.Location = new System.Drawing.Point(12, 30);
-            labelTime.Name = "labelTime";
-            labelTime.Size = new System.Drawing.Size(98, 15);
-            labelTime.TabIndex = 2;
-            labelTime.Text = "Time (In Minute):";
-            // 
-            // numericUpDownTime
-            // 
-            numericUpDownTime.Location = new System.Drawing.Point(116, 28);
-            numericUpDownTime.Name = "numericUpDownTime";
-            numericUpDownTime.Size = new System.Drawing.Size(120, 23);
-            numericUpDownTime.TabIndex = 3;
-            numericUpDownTime.Value = new decimal(new int[] { 20, 0, 0, 0 });
-            // 
             // FormMain
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -239,6 +239,7 @@
             Controls.Add(groupBoxStatus);
             Controls.Add(statusStripMain);
             Controls.Add(menuStripMain);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStripMain;
             Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -255,10 +256,10 @@
             menuStripMain.PerformLayout();
             groupBoxStatus.ResumeLayout(false);
             groupBoxStatus.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownTime).EndInit();
             contextMenuStripMain.ResumeLayout(false);
             panelControls.ResumeLayout(false);
             panelControls.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownTime).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

@@ -107,10 +107,6 @@ namespace HelinusPingUtility
             {
                 try
                 {
-                    tempPingResult = iPClass.PingIt();
-
-    
-
                     //labelFailedPings.BeginInvoke((MethodInvoker)delegate ()
                     //{
                     //    labelFailedPings.Text = iPClass.FailedPings.ToString();

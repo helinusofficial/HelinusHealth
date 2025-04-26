@@ -104,10 +104,12 @@ namespace HelinusPingUtility
         {
             try
             {
+                if(enableDisable)
                 labelTimeLeft.BeginInvoke((MethodInvoker)delegate ()
                  {
-                     labelTimeLeft.Enabled = !enableDisable;
+                     labelTimeLeft.Text ="0 Second(s)";
                  });
+
                 numericUpDownTime.BeginInvoke((MethodInvoker)delegate ()
                 {
                     numericUpDownTime.Enabled = !enableDisable;

@@ -141,9 +141,9 @@
             labelTimeLeft.AutoSize = true;
             labelTimeLeft.Location = new System.Drawing.Point(275, 30);
             labelTimeLeft.Name = "labelTimeLeft";
-            labelTimeLeft.Size = new System.Drawing.Size(54, 15);
+            labelTimeLeft.Size = new System.Drawing.Size(67, 15);
             labelTimeLeft.TabIndex = 5;
-            labelTimeLeft.Text = "0 Minute";
+            labelTimeLeft.Text = "0 Secend(s)";
             // 
             // label1
             // 

@@ -16,7 +16,7 @@ namespace HelinusPingUtility
         #region VariableRegion
         internal Utilities utilities;
         Thread th_Timer;
-        int th_Timer_Timer = 1000;//1 second
+        int th_Timer_Time = 1000;//1 second
         bool workStatus = false;
         #endregion
 
@@ -67,6 +67,7 @@ namespace HelinusPingUtility
         #region MethodRegion
         private void Init()
         {
+            totalSeconds = 0;
             utilities = new Utilities();
             th_Timer = new Thread(new ThreadStart(TimerFunction));
         }
@@ -79,35 +80,24 @@ namespace HelinusPingUtility
                 ChangeComponents(false);
             }
         }
+
+        private int totalSeconds = 0;
         private void TimerFunction()
         {
             while (th_Timer.IsAlive && workStatus)
             {
                 try
                 {
-                    //labelFailedPings.BeginInvoke((MethodInvoker)delegate ()
-                    //{
-                    //    labelFailedPings.Text = iPClass.FailedPings.ToString();
-                    //});
-                    //labelPacketLoss.BeginInvoke((MethodInvoker)delegate ()
-                    //{
-                    //    labelPacketLoss.Text = iPClass.PacketLoss.ToString() + " %";
-                    //});
-                    //labelPingAmount.BeginInvoke((MethodInvoker)delegate ()
-                    //{
-                    //    labelPingAmount.Text = iPClass.PingAmount.ToString();
-                    //});
-                    //labelAveragePing.BeginInvoke((MethodInvoker)delegate ()
-                    //{
-                    //    labelAveragePing.Text = iPClass.AveragePing.ToString() + " s";
-                    //});
-
+                    labelTimeLeft.BeginInvoke((MethodInvoker)delegate ()
+                    {
+                        labelTimeLeft.Text = totalSeconds++.ToString() +" Secend(s)";
+                    });
                 }
                 catch (Exception err)
                 {
                     Thread.Sleep(1000);
                 }
-                Thread.Sleep(th_Timer_Timer);
+                Thread.Sleep(th_Timer_Time);
             }
         }
         private void ChangeComponents(bool enableDisable)

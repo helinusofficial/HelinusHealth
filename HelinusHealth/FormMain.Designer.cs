@@ -50,6 +50,8 @@
             panelControls = new System.Windows.Forms.Panel();
             labelLogoDetail = new System.Windows.Forms.Label();
             labelLogo = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            labelTimeLeft = new System.Windows.Forms.Label();
             statusStripMain.SuspendLayout();
             menuStripMain.SuspendLayout();
             groupBoxStatus.SuspendLayout();
@@ -61,10 +63,10 @@
             // statusStripMain
             // 
             statusStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripStatusLabelVer });
-            statusStripMain.Location = new System.Drawing.Point(0, 188);
+            statusStripMain.Location = new System.Drawing.Point(0, 183);
             statusStripMain.Name = "statusStripMain";
             statusStripMain.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
-            statusStripMain.Size = new System.Drawing.Size(270, 22);
+            statusStripMain.Size = new System.Drawing.Size(387, 22);
             statusStripMain.TabIndex = 0;
             statusStripMain.Text = "Helinus Ping Utility";
             // 
@@ -80,7 +82,7 @@
             menuStripMain.Location = new System.Drawing.Point(0, 0);
             menuStripMain.Name = "menuStripMain";
             menuStripMain.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            menuStripMain.Size = new System.Drawing.Size(270, 24);
+            menuStripMain.Size = new System.Drawing.Size(387, 24);
             menuStripMain.TabIndex = 1;
             menuStripMain.Text = "Helinus Ping Utility";
             // 
@@ -119,6 +121,8 @@
             // 
             // groupBoxStatus
             // 
+            groupBoxStatus.Controls.Add(labelTimeLeft);
+            groupBoxStatus.Controls.Add(label1);
             groupBoxStatus.Controls.Add(numericUpDownTime);
             groupBoxStatus.Controls.Add(labelTime);
             groupBoxStatus.Controls.Add(buttonStop);
@@ -127,23 +131,23 @@
             groupBoxStatus.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             groupBoxStatus.Name = "groupBoxStatus";
             groupBoxStatus.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBoxStatus.Size = new System.Drawing.Size(268, 110);
+            groupBoxStatus.Size = new System.Drawing.Size(386, 110);
             groupBoxStatus.TabIndex = 2;
             groupBoxStatus.TabStop = false;
             groupBoxStatus.Text = "Status";
             // 
             // numericUpDownTime
             // 
-            numericUpDownTime.Location = new System.Drawing.Point(116, 28);
+            numericUpDownTime.Location = new System.Drawing.Point(116, 25);
             numericUpDownTime.Name = "numericUpDownTime";
-            numericUpDownTime.Size = new System.Drawing.Size(120, 23);
+            numericUpDownTime.Size = new System.Drawing.Size(61, 23);
             numericUpDownTime.TabIndex = 3;
             numericUpDownTime.Value = new decimal(new int[] { 20, 0, 0, 0 });
             // 
             // labelTime
             // 
             labelTime.AutoSize = true;
-            labelTime.Location = new System.Drawing.Point(12, 30);
+            labelTime.Location = new System.Drawing.Point(12, 29);
             labelTime.Name = "labelTime";
             labelTime.Size = new System.Drawing.Size(98, 15);
             labelTime.TabIndex = 2;
@@ -151,7 +155,8 @@
             // 
             // buttonStop
             // 
-            buttonStop.Location = new System.Drawing.Point(138, 64);
+            buttonStop.Enabled = false;
+            buttonStop.Location = new System.Drawing.Point(181, 70);
             buttonStop.Name = "buttonStop";
             buttonStop.Size = new System.Drawing.Size(75, 23);
             buttonStop.TabIndex = 1;
@@ -160,7 +165,7 @@
             // 
             // buttonStart
             // 
-            buttonStart.Location = new System.Drawing.Point(48, 64);
+            buttonStart.Location = new System.Drawing.Point(91, 70);
             buttonStart.Name = "buttonStart";
             buttonStart.Size = new System.Drawing.Size(75, 23);
             buttonStart.TabIndex = 0;
@@ -203,7 +208,7 @@
             panelControls.Location = new System.Drawing.Point(0, 24);
             panelControls.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             panelControls.Name = "panelControls";
-            panelControls.Size = new System.Drawing.Size(270, 37);
+            panelControls.Size = new System.Drawing.Size(387, 37);
             panelControls.TabIndex = 4;
             // 
             // labelLogoDetail
@@ -230,11 +235,29 @@
             labelLogo.TabIndex = 2;
             labelLogo.Text = "Helinus";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(214, 29);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(59, 15);
+            label1.TabIndex = 4;
+            label1.Text = "Time Left:";
+            // 
+            // labelTimeLeft
+            // 
+            labelTimeLeft.AutoSize = true;
+            labelTimeLeft.Location = new System.Drawing.Point(275, 30);
+            labelTimeLeft.Name = "labelTimeLeft";
+            labelTimeLeft.Size = new System.Drawing.Size(54, 15);
+            labelTimeLeft.TabIndex = 5;
+            labelTimeLeft.Text = "0 Minute";
+            // 
             // FormMain
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(270, 210);
+            ClientSize = new System.Drawing.Size(387, 205);
             Controls.Add(panelControls);
             Controls.Add(groupBoxStatus);
             Controls.Add(statusStripMain);
@@ -286,5 +309,7 @@
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.Button buttonStop;
         private System.Windows.Forms.Button buttonStart;
+        private System.Windows.Forms.Label labelTimeLeft;
+        private System.Windows.Forms.Label label1;
     }
 }

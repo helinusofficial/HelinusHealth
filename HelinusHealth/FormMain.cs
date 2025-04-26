@@ -140,7 +140,7 @@ namespace HelinusHealth
                     {
                         labelStatus.Text = "Work Time :)";
                         labelStatus.ForeColor = Color.Green;
-                        Console.Beep(1000, 500);
+                        Console.Beep(1000, 400);
                     }); 
 
                 }
@@ -149,7 +149,7 @@ namespace HelinusHealth
                     {
                         labelStatus.Text = "Rest Time :)";
                         labelStatus.ForeColor = Color.Red;
-                        Console.Beep(2000, 500);
+                        Console.Beep(2000, 400);
                     });
 
                 numericUpDownTime.BeginInvoke((MethodInvoker)delegate ()

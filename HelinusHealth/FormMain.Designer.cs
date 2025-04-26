@@ -96,12 +96,12 @@
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new System.Drawing.Size(90, 6);
+            toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -139,7 +139,7 @@
             // labelTimeLeft
             // 
             labelTimeLeft.AutoSize = true;
-            labelTimeLeft.Location = new System.Drawing.Point(275, 30);
+            labelTimeLeft.Location = new System.Drawing.Point(271, 30);
             labelTimeLeft.Name = "labelTimeLeft";
             labelTimeLeft.Size = new System.Drawing.Size(67, 15);
             labelTimeLeft.TabIndex = 5;
@@ -160,7 +160,7 @@
             numericUpDownTime.Name = "numericUpDownTime";
             numericUpDownTime.Size = new System.Drawing.Size(61, 23);
             numericUpDownTime.TabIndex = 3;
-            numericUpDownTime.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDownTime.Value = new decimal(new int[] { 20, 0, 0, 0 });
             // 
             // labelTime
             // 

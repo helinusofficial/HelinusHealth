@@ -115,7 +115,7 @@ namespace HelinusHealth
                         labelTimeLeft.Text = totalSeconds--.ToString() + " Second(s)";
                     });
 
-                    if (totalSeconds <= 57)
+                    if (totalSeconds <= 0)
                         ShutdownApp(true);
                 }
                 catch (Exception err)

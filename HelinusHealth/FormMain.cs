@@ -15,11 +15,9 @@ namespace HelinusPingUtility
     {
         #region VariableRegion
         internal Utilities utilities;
-        Thread th_StartPinging;
-        int th_SendPing_Timer = 1000;//1 second
+        Thread th_Timer;
+        int th_Timer_Timer = 1000;//1 second
         bool workStatus = false;
-
-        string tempPingResult = string.Empty;
         #endregion
 
         public FormMain()
@@ -46,15 +44,12 @@ namespace HelinusPingUtility
 
         private void toolStripMenuItemStart_Click(object sender, EventArgs e)
         {
-           /* if (!string.IsNullOrEmpty(textBoxIP.Text.Trim()))
-            {
-                Init();
-                PrintLogMessage("----------------------------------------Start--------------------------------------------", false);
-               // iPClass = new IPClass(textBoxIP.Text.Trim());
-                workStatus = true;
-                th_StartPinging.Start();
-                ChangeComponents(true);
-            }*/
+             
+                 Init();
+              
+                 workStatus = true;
+                 th_Timer.Start();
+                 ChangeComponents(true);
         }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -64,7 +59,7 @@ namespace HelinusPingUtility
         {
             ShutdownApp();
         }
-      
+
         private void FormMain_Resize(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Minimized)
@@ -86,24 +81,22 @@ namespace HelinusPingUtility
         #region MethodRegion
         private void Init()
         {
-           // LogService = new LogSrv(Application.StartupPath);
             utilities = new Utilities();
-            th_StartPinging = new Thread(new ThreadStart(PingingFunction));
+            th_Timer = new Thread(new ThreadStart(TimerFunction));
         }
         private void ShutdownApp()
         {
             workStatus = false;
-            if (th_StartPinging != null && th_StartPinging.ThreadState != ThreadState.Stopped && th_StartPinging.ThreadState != ThreadState.Unstarted)
+            if (th_Timer != null && th_Timer.ThreadState != ThreadState.Stopped && th_Timer.ThreadState != ThreadState.Unstarted)
             {
-              
-                th_StartPinging.Join();
+                th_Timer.Join();
                 ChangeComponents(false);
             }
 
         }
-        private void PingingFunction()
+        private void TimerFunction()
         {
-            while (th_StartPinging.IsAlive && workStatus)
+            while (th_Timer.IsAlive && workStatus)
             {
                 try
                 {
@@ -129,13 +122,30 @@ namespace HelinusPingUtility
                 {
                     Thread.Sleep(1000);
                 }
-                Thread.Sleep(th_SendPing_Timer);
+                Thread.Sleep(th_Timer_Timer);
             }
         }
         private void ChangeComponents(bool enableDisable)
         {
             try
             {
+                labelTimeLeft.BeginInvoke((MethodInvoker)delegate ()
+                 {
+                     labelTimeLeft.Enabled = !enableDisable;
+                 });
+                numericUpDownTime.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    numericUpDownTime.Enabled = !enableDisable;
+                });
+                buttonStart.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    buttonStart.Enabled = !enableDisable;
+                });
+                buttonStop.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    buttonStop.Enabled = !enableDisable;
+                });
+
                 menuStripMain.BeginInvoke((MethodInvoker)delegate ()
                 {
                     exitToolStripMenuItem.Enabled = !enableDisable;
@@ -143,7 +153,7 @@ namespace HelinusPingUtility
             }
             catch { }
         }
-       
+
         private void HideMainForm()
         {
             this.Hide();
@@ -164,5 +174,10 @@ namespace HelinusPingUtility
             this.WindowState = FormWindowState.Normal;
         }
         #endregion
+
+        private void buttonStart_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

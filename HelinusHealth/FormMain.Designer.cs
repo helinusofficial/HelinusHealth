@@ -96,12 +96,12 @@
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            toolStripSeparator1.Size = new System.Drawing.Size(90, 6);
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -196,19 +196,19 @@
             // 
             contextMenuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItemShow, aboutToolStripMenuItemAbout });
             contextMenuStripMain.Name = "contextMenuStripMain";
-            contextMenuStripMain.Size = new System.Drawing.Size(165, 48);
+            contextMenuStripMain.Size = new System.Drawing.Size(185, 70);
             // 
             // toolStripMenuItemShow
             // 
             toolStripMenuItemShow.Name = "toolStripMenuItemShow";
-            toolStripMenuItemShow.Size = new System.Drawing.Size(164, 22);
-            toolStripMenuItemShow.Text = "Show Ping Utility";
+            toolStripMenuItemShow.Size = new System.Drawing.Size(184, 22);
+            toolStripMenuItemShow.Text = "Show Helinus Health";
             toolStripMenuItemShow.Click += toolStripMenuItemShow_Click;
             // 
             // aboutToolStripMenuItemAbout
             // 
             aboutToolStripMenuItemAbout.Name = "aboutToolStripMenuItemAbout";
-            aboutToolStripMenuItemAbout.Size = new System.Drawing.Size(164, 22);
+            aboutToolStripMenuItemAbout.Size = new System.Drawing.Size(184, 22);
             aboutToolStripMenuItemAbout.Text = "About";
             aboutToolStripMenuItemAbout.Click += aboutToolStripMenuItem1_Click;
             // 

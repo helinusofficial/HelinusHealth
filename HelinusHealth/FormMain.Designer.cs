@@ -160,7 +160,7 @@
             numericUpDownTime.Name = "numericUpDownTime";
             numericUpDownTime.Size = new System.Drawing.Size(61, 23);
             numericUpDownTime.TabIndex = 3;
-            numericUpDownTime.Value = new decimal(new int[] { 20, 0, 0, 0 });
+            numericUpDownTime.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // labelTime
             // 

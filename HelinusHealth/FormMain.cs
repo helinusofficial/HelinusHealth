@@ -42,7 +42,7 @@ namespace HelinusHealth
 
         private void buttonStop_Click(object sender, EventArgs e)
         {
-            ShutdownApp();
+            ShutdownApp(false);
         }
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -55,7 +55,7 @@ namespace HelinusHealth
         }
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ShutdownApp();
+            ShutdownApp(false);
         }
 
         private void FormMain_Resize(object sender, EventArgs e)
@@ -83,13 +83,17 @@ namespace HelinusHealth
             utilities = new Utilities();
             th_Timer = new Thread(new ThreadStart(TimerFunction));
         }
-        private void ShutdownApp()
+        private void ShutdownApp(bool stop)
         {
             workStatus = false;
             if (th_Timer != null && th_Timer.ThreadState != ThreadState.Stopped && th_Timer.ThreadState != ThreadState.Unstarted)
             {
-                th_Timer.Join();
                 ChangeComponents(false);
+
+                if (stop)
+                    ShowMainForm(); 
+                
+                th_Timer.Join();
             }
         }
 
@@ -106,6 +110,9 @@ namespace HelinusHealth
                     {
                         labelTimeLeft.Text = totalSeconds--.ToString() + " Second(s)";
                     });
+
+                    if (totalSeconds <= 57)
+                        ShutdownApp(true);
                 }
                 catch (Exception err)
                 {
@@ -159,10 +166,16 @@ namespace HelinusHealth
         private void ShowMainForm()
         {
             notifyIconMain.Visible = false;
-            this.Visible = true;
-            this.Text = "Helinus Health | Davood Motevalizadeh";
-            this.Opacity = 100;
-            this.WindowState = FormWindowState.Normal;
+
+            //this.Visible = true;
+            //this.Text = "Helinus Health | Davood Motevalizadeh";
+            //this.Opacity = 100;
+            //this.WindowState = FormWindowState.Normal;
+
+            Invoke(new MethodInvoker(delegate { this.Visible = true; }));
+            Invoke(new MethodInvoker(delegate { this.Text = "Helinus Health | Davood Motevalizadeh"; }));
+            Invoke(new MethodInvoker(delegate { this.Opacity = 100; }));
+            Invoke(new MethodInvoker(delegate { this.WindowState = FormWindowState.Normal; }));
         }
         #endregion
     }

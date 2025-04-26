@@ -1,4 +1,4 @@
-﻿namespace HelinusPingUtility
+﻿namespace HelinusHealth
 {
     partial class FormMain
     {

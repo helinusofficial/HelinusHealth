@@ -1,4 +1,4 @@
-﻿namespace HelinusPingUtility
+﻿namespace HelinusHealth
 {
     partial class FormAbout
     {
@@ -182,7 +182,7 @@
             ShowIcon = false;
             ShowInTaskbar = false;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "About | Helinus Ping Utility";
+            Text = "About | Helinus Health";
             Load += FormAbout_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

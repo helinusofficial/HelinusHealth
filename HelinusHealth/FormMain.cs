@@ -84,13 +84,15 @@ namespace HelinusPingUtility
         private int totalSeconds = 0;
         private void TimerFunction()
         {
+            totalSeconds =Convert.ToInt32(numericUpDownTime.Value) * 60;
+
             while (th_Timer.IsAlive && workStatus)
             {
                 try
                 {
                     labelTimeLeft.BeginInvoke((MethodInvoker)delegate ()
                     {
-                        labelTimeLeft.Text = totalSeconds++.ToString() +" Secend(s)";
+                        labelTimeLeft.Text = totalSeconds--.ToString() +" Secend(s)";
                     });
                 }
                 catch (Exception err)

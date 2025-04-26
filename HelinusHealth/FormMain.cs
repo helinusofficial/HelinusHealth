@@ -31,6 +31,19 @@ namespace HelinusHealth
         }
 
         #region EventRegion
+
+        private void buttonStart_Click(object sender, EventArgs e)
+        {
+            Init();
+            workStatus = true;
+            th_Timer.Start();
+            ChangeComponents(true);
+        }
+
+        private void buttonStop_Click(object sender, EventArgs e)
+        {
+            ShutdownApp();
+        }
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormAbout fa = new FormAbout();
@@ -152,18 +165,5 @@ namespace HelinusHealth
             this.WindowState = FormWindowState.Normal;
         }
         #endregion
-
-        private void buttonStart_Click(object sender, EventArgs e)
-        {
-            Init();
-            workStatus = true;
-            th_Timer.Start();
-            ChangeComponents(true);
-        }
-
-        private void buttonStop_Click(object sender, EventArgs e)
-        {
-            ShutdownApp();
-        }
     }
 }

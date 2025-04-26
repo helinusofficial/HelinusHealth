@@ -216,7 +216,7 @@
             // 
             notifyIconMain.ContextMenuStrip = contextMenuStripMain;
             notifyIconMain.Icon = (System.Drawing.Icon)resources.GetObject("notifyIconMain.Icon");
-            notifyIconMain.Text = "Ping Utility";
+            notifyIconMain.Text = "Health";
             notifyIconMain.Visible = true;
             // 
             // panelControls

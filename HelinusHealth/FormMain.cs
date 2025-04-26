@@ -12,7 +12,10 @@ namespace HelinusHealth
     public partial class FormMain : Form
     {
         #region VariableRegion
-        private int totalSeconds = 0;
+        private double rts = 0;
+        private double pts = 0;
+        private TimeSpan pastTime;
+        private TimeSpan totalSeconds;
         internal Utilities utilities;
         Thread th_Timer;
         int th_Timer_Time = 1000;//1 second
@@ -83,7 +86,8 @@ namespace HelinusHealth
         #region MethodRegion
         private void Init()
         {
-            totalSeconds = 0;
+            totalSeconds =new TimeSpan(0);
+            pastTime = new TimeSpan(0);
             utilities = new Utilities();
             th_Timer = new Thread(new ThreadStart(TimerFunction));
         }
@@ -101,21 +105,36 @@ namespace HelinusHealth
             }
         }
 
-        
+ 
         private void TimerFunction()
         {
-            totalSeconds =Convert.ToInt32(numericUpDownTime.Value) * 60;
+            pts = 0;
+             pastTime = TimeSpan.FromSeconds(pts);
 
+            rts = Convert.ToInt32(numericUpDownTime.Value) * 60;
+            totalSeconds = TimeSpan.FromSeconds(rts);
+         
+            
             while (th_Timer.IsAlive && workStatus)
             {
                 try
                 {
+                    pts++;
+                    pastTime = TimeSpan.FromSeconds(pts);
+                    labelPastTime.BeginInvoke((MethodInvoker)delegate ()
+                    {
+                        labelPastTime.Text = pastTime.Hours + ":" + pastTime.Minutes +
+                                              ":" + pastTime.Seconds;
+                    });
+                    rts--;
+                    totalSeconds = TimeSpan.FromSeconds(rts);
                     labelTimeLeft.BeginInvoke((MethodInvoker)delegate ()
                     {
-                        labelTimeLeft.Text = totalSeconds--.ToString() + " Second(s)";
+                        labelTimeLeft.Text = totalSeconds.Hours+":"+ totalSeconds.Minutes+
+                                              ":"+ totalSeconds.Seconds;
                     });
 
-                    if (totalSeconds <= 0)
+                    if (totalSeconds.TotalSeconds <= 0)
                         ShutdownApp(true);
                 }
                 catch (Exception err)
@@ -131,26 +150,23 @@ namespace HelinusHealth
             {
                 if (enableDisable)
                 {
-                    labelTimeLeft.BeginInvoke((MethodInvoker)delegate ()
-                     {
-                         labelTimeLeft.Text = "0 Second(s)";
-                     });
-
-                    labelStatus.BeginInvoke((MethodInvoker)delegate ()
+                   labelStatus.BeginInvoke((MethodInvoker)delegate ()
                     {
                         labelStatus.Text = "Work Time :)";
                         labelStatus.ForeColor = Color.Green;
                         Console.Beep(1000, 400);
-                    }); 
+                    });
 
                 }
                 else
+                {
                     labelStatus.BeginInvoke((MethodInvoker)delegate ()
                     {
                         labelStatus.Text = "Rest Time :)";
                         labelStatus.ForeColor = Color.Red;
                         Console.Beep(2000, 400);
                     });
+                }
 
                 numericUpDownTime.BeginInvoke((MethodInvoker)delegate ()
                     {

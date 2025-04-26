@@ -39,6 +39,8 @@
             helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             groupBoxStatus = new System.Windows.Forms.GroupBox();
+            labelPastTime = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
             labelTimeLeft = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             numericUpDownTime = new System.Windows.Forms.NumericUpDown();
@@ -122,6 +124,8 @@
             // 
             // groupBoxStatus
             // 
+            groupBoxStatus.Controls.Add(labelPastTime);
+            groupBoxStatus.Controls.Add(label2);
             groupBoxStatus.Controls.Add(labelTimeLeft);
             groupBoxStatus.Controls.Add(label1);
             groupBoxStatus.Controls.Add(numericUpDownTime);
@@ -137,23 +141,41 @@
             groupBoxStatus.TabStop = false;
             groupBoxStatus.Text = "Status";
             // 
+            // labelPastTime
+            // 
+            labelPastTime.AutoSize = true;
+            labelPastTime.Location = new System.Drawing.Point(247, 40);
+            labelPastTime.Name = "labelPastTime";
+            labelPastTime.Size = new System.Drawing.Size(13, 15);
+            labelPastTime.TabIndex = 7;
+            labelPastTime.Text = "0";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(216, 40);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(32, 15);
+            label2.TabIndex = 6;
+            label2.Text = "Past:";
+            // 
             // labelTimeLeft
             // 
             labelTimeLeft.AutoSize = true;
-            labelTimeLeft.Location = new System.Drawing.Point(271, 30);
+            labelTimeLeft.Location = new System.Drawing.Point(247, 20);
             labelTimeLeft.Name = "labelTimeLeft";
-            labelTimeLeft.Size = new System.Drawing.Size(67, 15);
+            labelTimeLeft.Size = new System.Drawing.Size(13, 15);
             labelTimeLeft.TabIndex = 5;
-            labelTimeLeft.Text = "0 Secend(s)";
+            labelTimeLeft.Text = "0";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(214, 29);
+            label1.Location = new System.Drawing.Point(216, 20);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(59, 15);
+            label1.Size = new System.Drawing.Size(30, 15);
             label1.TabIndex = 4;
-            label1.Text = "Time Left:";
+            label1.Text = "Left:";
             // 
             // numericUpDownTime
             // 
@@ -327,5 +349,7 @@
         private System.Windows.Forms.Label labelTimeLeft;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelStatus;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelPastTime;
     }
 }

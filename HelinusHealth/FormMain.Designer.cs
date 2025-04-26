@@ -52,6 +52,7 @@
             panelControls = new System.Windows.Forms.Panel();
             labelLogoDetail = new System.Windows.Forms.Label();
             labelLogo = new System.Windows.Forms.Label();
+            labelStatus = new System.Windows.Forms.Label();
             statusStripMain.SuspendLayout();
             menuStripMain.SuspendLayout();
             groupBoxStatus.SuspendLayout();
@@ -63,7 +64,7 @@
             // statusStripMain
             // 
             statusStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripStatusLabelVer });
-            statusStripMain.Location = new System.Drawing.Point(0, 183);
+            statusStripMain.Location = new System.Drawing.Point(0, 243);
             statusStripMain.Name = "statusStripMain";
             statusStripMain.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
             statusStripMain.Size = new System.Drawing.Size(387, 22);
@@ -196,7 +197,7 @@
             // 
             contextMenuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItemShow, aboutToolStripMenuItemAbout });
             contextMenuStripMain.Name = "contextMenuStripMain";
-            contextMenuStripMain.Size = new System.Drawing.Size(185, 70);
+            contextMenuStripMain.Size = new System.Drawing.Size(185, 48);
             // 
             // toolStripMenuItemShow
             // 
@@ -255,11 +256,23 @@
             labelLogo.TabIndex = 2;
             labelLogo.Text = "Helinus";
             // 
+            // labelStatus
+            // 
+            labelStatus.AutoSize = true;
+            labelStatus.Font = new System.Drawing.Font("Segoe UI", 25F);
+            labelStatus.ForeColor = System.Drawing.Color.FromArgb(0, 192, 0);
+            labelStatus.Location = new System.Drawing.Point(8, 185);
+            labelStatus.Name = "labelStatus";
+            labelStatus.Size = new System.Drawing.Size(34, 46);
+            labelStatus.TabIndex = 5;
+            labelStatus.Text = "-";
+            // 
             // FormMain
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(387, 205);
+            ClientSize = new System.Drawing.Size(387, 265);
+            Controls.Add(labelStatus);
             Controls.Add(panelControls);
             Controls.Add(groupBoxStatus);
             Controls.Add(statusStripMain);
@@ -313,5 +326,6 @@
         private System.Windows.Forms.Button buttonStart;
         private System.Windows.Forms.Label labelTimeLeft;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelStatus;
     }
 }

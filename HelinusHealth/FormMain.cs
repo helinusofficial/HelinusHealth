@@ -129,16 +129,33 @@ namespace HelinusHealth
         {
             try
             {
-                if(enableDisable)
-                labelTimeLeft.BeginInvoke((MethodInvoker)delegate ()
-                 {
-                     labelTimeLeft.Text ="0 Second(s)";
-                 });
+                if (enableDisable)
+                {
+                    labelTimeLeft.BeginInvoke((MethodInvoker)delegate ()
+                     {
+                         labelTimeLeft.Text = "0 Second(s)";
+                     });
+
+                    labelStatus.BeginInvoke((MethodInvoker)delegate ()
+                    {
+                        labelStatus.Text = "Work Time :)";
+                        labelStatus.ForeColor = Color.Green;
+                        Console.Beep(1000, 500);
+                    }); 
+
+                }
+                else
+                    labelStatus.BeginInvoke((MethodInvoker)delegate ()
+                    {
+                        labelStatus.Text = "Rest Time :)";
+                        labelStatus.ForeColor = Color.Red;
+                        Console.Beep(2000, 500);
+                    });
 
                 numericUpDownTime.BeginInvoke((MethodInvoker)delegate ()
-                {
-                    numericUpDownTime.Enabled = !enableDisable;
-                });
+                    {
+                        numericUpDownTime.Enabled = !enableDisable;
+                    });
                 buttonStart.BeginInvoke((MethodInvoker)delegate ()
                 {
                     buttonStart.Enabled = !enableDisable;

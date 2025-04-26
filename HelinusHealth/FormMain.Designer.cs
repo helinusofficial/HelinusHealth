@@ -39,6 +39,8 @@
             helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             groupBoxStatus = new System.Windows.Forms.GroupBox();
+            labelTimeLeft = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             numericUpDownTime = new System.Windows.Forms.NumericUpDown();
             labelTime = new System.Windows.Forms.Label();
             buttonStop = new System.Windows.Forms.Button();
@@ -50,8 +52,6 @@
             panelControls = new System.Windows.Forms.Panel();
             labelLogoDetail = new System.Windows.Forms.Label();
             labelLogo = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
-            labelTimeLeft = new System.Windows.Forms.Label();
             statusStripMain.SuspendLayout();
             menuStripMain.SuspendLayout();
             groupBoxStatus.SuspendLayout();
@@ -136,6 +136,24 @@
             groupBoxStatus.TabStop = false;
             groupBoxStatus.Text = "Status";
             // 
+            // labelTimeLeft
+            // 
+            labelTimeLeft.AutoSize = true;
+            labelTimeLeft.Location = new System.Drawing.Point(275, 30);
+            labelTimeLeft.Name = "labelTimeLeft";
+            labelTimeLeft.Size = new System.Drawing.Size(54, 15);
+            labelTimeLeft.TabIndex = 5;
+            labelTimeLeft.Text = "0 Minute";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(214, 29);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(59, 15);
+            label1.TabIndex = 4;
+            label1.Text = "Time Left:";
+            // 
             // numericUpDownTime
             // 
             numericUpDownTime.Location = new System.Drawing.Point(116, 25);
@@ -162,6 +180,7 @@
             buttonStop.TabIndex = 1;
             buttonStop.Text = "Stop";
             buttonStop.UseVisualStyleBackColor = true;
+            buttonStop.Click += buttonStop_Click;
             // 
             // buttonStart
             // 
@@ -235,24 +254,6 @@
             labelLogo.Size = new System.Drawing.Size(77, 22);
             labelLogo.TabIndex = 2;
             labelLogo.Text = "Helinus";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(214, 29);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(59, 15);
-            label1.TabIndex = 4;
-            label1.Text = "Time Left:";
-            // 
-            // labelTimeLeft
-            // 
-            labelTimeLeft.AutoSize = true;
-            labelTimeLeft.Location = new System.Drawing.Point(275, 30);
-            labelTimeLeft.Name = "labelTimeLeft";
-            labelTimeLeft.Size = new System.Drawing.Size(54, 15);
-            labelTimeLeft.TabIndex = 5;
-            labelTimeLeft.Text = "0 Minute";
             // 
             // FormMain
             // 

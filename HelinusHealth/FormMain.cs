@@ -37,20 +37,6 @@ namespace HelinusPingUtility
             FormAbout fa = new FormAbout();
             fa.ShowDialog();
         }
-        private void toolStripMenuItemStop_Click(object sender, EventArgs e)
-        {
-            ShutdownApp();
-        }
-
-        private void toolStripMenuItemStart_Click(object sender, EventArgs e)
-        {
-             
-                 Init();
-              
-                 workStatus = true;
-                 th_Timer.Start();
-                 ChangeComponents(true);
-        }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -92,7 +78,6 @@ namespace HelinusPingUtility
                 th_Timer.Join();
                 ChangeComponents(false);
             }
-
         }
         private void TimerFunction()
         {
@@ -143,7 +128,7 @@ namespace HelinusPingUtility
                 });
                 buttonStop.BeginInvoke((MethodInvoker)delegate ()
                 {
-                    buttonStop.Enabled = !enableDisable;
+                    buttonStop.Enabled = enableDisable;
                 });
 
                 menuStripMain.BeginInvoke((MethodInvoker)delegate ()
@@ -177,7 +162,15 @@ namespace HelinusPingUtility
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
+            Init();
+            workStatus = true;
+            th_Timer.Start();
+            ChangeComponents(true);
+        }
 
+        private void buttonStop_Click(object sender, EventArgs e)
+        {
+            ShutdownApp();
         }
     }
 }

@@ -114,7 +114,6 @@ namespace HelinusHealth
             rts = Convert.ToInt32(numericUpDownTime.Value) * 60;
             totalSeconds = TimeSpan.FromSeconds(rts);
          
-            
             while (th_Timer.IsAlive && workStatus)
             {
                 try

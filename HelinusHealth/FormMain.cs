@@ -45,7 +45,7 @@ namespace HelinusHealth
 
         private void buttonStop_Click(object sender, EventArgs e)
         {
-            ShutdownApp(false);
+            ShutdownApp(false,false);
         }
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -62,7 +62,7 @@ namespace HelinusHealth
         }
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ShutdownApp(false);
+            ShutdownApp(false,true);
         }
 
         private void FormMain_Resize(object sender, EventArgs e)
@@ -91,18 +91,22 @@ namespace HelinusHealth
             utilities = new Utilities();
             th_Timer = new Thread(new ThreadStart(TimerFunction));
         }
-        private void ShutdownApp(bool stop)
+        private void ShutdownApp(bool stop,bool exitapp)
         {
             workStatus = false;
-            if (th_Timer != null && th_Timer.ThreadState != ThreadState.Stopped && th_Timer.ThreadState != ThreadState.Unstarted)
+            if (th_Timer != null && th_Timer.ThreadState != ThreadState.Stopped &&
+                th_Timer.ThreadState != ThreadState.Unstarted && !exitapp)
             {
                 ChangeComponents(false);
 
                 if (stop)
-                    ShowMainForm(); 
-                
+                    ShowMainForm();
+
                 th_Timer.Join();
             }
+
+            if (exitapp)
+                Environment.Exit(0);
         }
 
  
@@ -134,7 +138,7 @@ namespace HelinusHealth
                     });
 
                     if (totalSeconds.TotalSeconds <= 0)
-                        ShutdownApp(true);
+                        ShutdownApp(true,false);
                 }
                 catch (Exception err)
                 {
@@ -153,7 +157,7 @@ namespace HelinusHealth
                     {
                         labelStatus.Text = "Work Time :)";
                         labelStatus.ForeColor = Color.Green;
-                        Console.Beep(1000, 400);
+                        Console.Beep(500, 400);
                     });
 
                 }
